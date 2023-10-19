@@ -36,4 +36,13 @@ function PageTransition() {
 
 }
 
+// Get width of progress from dataset.width
+function ProgressBar() {
+    const progressList = document.querySelectorAll('.progress')
+    progressList.forEach((progress) => {
+        progress.style.width = progress.dataset.width
+    })
+}
+
 PageTransition()
+ProgressBar()
