@@ -98,8 +98,6 @@
     justify-content: center;
 }
 
-
-
 // =========================================================================
 body {
   font-family: "Roboto", sans-serif;
@@ -120,7 +118,7 @@ a {
     @include text-grad-primary;
 }
 
-.bg-grad {
+.bg-grad-primary {
     @include bg-grad-primary;
 }
 
@@ -552,6 +550,91 @@ header {
 
 }
 
+// CONTACT
+.contact-content-con {
+    display: flex;
+    padding-top: 3.5rem;
+
+    .left-contact {
+        flex: 2;
+
+        h4 {
+            margin-top: 1rem;
+            font-size: 2rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            line-height: 2rem;
+        }
+
+        .contact-info {
+            .contact-item {
+                @include flex-row();
+                justify-content: space-between;
+                flex-wrap: wrap;
+                p {
+                    margin: .5rem 1rem !important;
+                    padding: 0 !important;
+                }
+
+                .icon {
+                    display: grid;
+                    grid-template-columns: 40px 1fr;
+
+                    i {
+                        @include flex-row();
+                        justify-content: center;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+            
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+            @include flex-row();
+            gap: 1rem;
+        }
+    }
+
+    .right-contact {
+        flex: 3;
+        margin-left: 3rem;
+
+        .input-control {
+            margin: 1rem 0;
+
+            input, textarea {
+                width: 100%;
+                resize: none;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                border-radius: 1.2rem;
+                padding: .5rem 1rem;
+                outline: none;
+                border: none;
+                background-color: var(--eerie-black);
+                color: var(--antiflash-white);
+            }
+
+        }
+
+        .same-row {
+            display: flex;
+            gap: 1rem;
+            
+        }
+
+        .submit-btn {
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
+
 // REUSABLE COMPONENTS =================================================================
 // BUTTON
 .btn-con {
@@ -601,6 +684,28 @@ header {
     
 }
 
+.round-btns {
+    a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--eerie-black);
+        @include flex-row();
+        justify-content: center;
+
+        i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        &:hover {
+            scale: 1.1;
+            background-color: var(--onyx);
+        }
+
+    }
+}
+
 // SECTION TITLE
 .main-title {
     text-align: center;
@@ -610,12 +715,13 @@ header {
 
         .front {
             position: relative;
+            letter-spacing: 4px;
             z-index: 1;
             animation: scale-up-105 3s ease alternate infinite;
         }
         .bg-text {
             position: absolute;
-            top: 20%;
+            top: 50%;
             left: 50%; 
             transform: translate(-50%, -50%); // move anchor point to center of the element's box
             text-transform: uppercase;
