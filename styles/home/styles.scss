@@ -6,17 +6,19 @@
 }
 
 :root {
-// COLORS
+  // COLORS
   --color-primary: rgb(0, 16, 20);
   --color-primary-40: rgba(0, 16, 20, 0.4);
-  --color-secondary: #00b0b3;
   --color-white: white;
   --color-black: black;
   --color-variant-1: #00303d;
   --color-variant-2: #004052;
   --color-variant-3: #005066;
-  
-  --seasalt: #f8f9faff;
+
+  --text-primary: var(--antiflash-white);
+  --text-secondary: var(--french-gray);
+
+  --seasalt: rgb(248, 249, 250);
   --antiflash-white: #e9ecefff;
   --platinum: #dee2e6ff;
   --french-gray: #ced4daff;
@@ -26,118 +28,210 @@
   --onyx: #343a40ff;
   --eerie-black: #212529ff;
 
-  --color-cyan: rgb(0, 176, 179);
-  --rgb-cyan: 0, 176, 179;
-  --color-cyan-light: rgb(71, 255, 237);
-  --rgb-cyan-light: 71, 255, 237;
-  --color-blue: rgb(60, 105, 255);
-  --rgb-blue: 60, 105, 255;
-  --color-purple: rgb(185, 108, 252);
-  --rgb-purple: 185, 108, 252;
+  --color-secondary: rgb(0, 176, 179);
+  --rgb-secondary: 0, 176, 179;
+  --color-secondary-light: rgb(71, 255, 237);
+  --rgb-secondary-light: 71, 255, 237;
+  --color-grad-1: rgb(60, 105, 255);
+  --rgb-grad-1: 60, 105, 255;
+  --color-grad-2: rgb(185, 108, 252);
+  --rgb-grad-2: 185, 108, 252;
 
-// =================================================================  
-  
-  --transition-all: var(--transition-all)
-  --transition-all-1: all 1s ease-in-out
-  
+  --border-color-box: var(--slate-gray);
+  --text-color-box: var(--text-primary);
+  --bg-progress-bar: var(--outer-space);
+  --bg-input: var(--eerie-black);
+  // ================================
+
+  --transition-all: var(--transition-all);
+  --transition-all-1: all 1s ease-in-out;
+
   --br-sm-2: 14px; // border-radius
 }
 
+.light-mode {
+  --color-primary: var(--seasalt);
+  --color-primary-40: rgba(248, 249, 250, 0.4);
+  --color-white: white;
+  --color-black: black;
+  --color-variant-1: #00303d;
+  --color-variant-2: #004052;
+  --color-variant-3: #005066;
+
+  --text-primary: black;
+  --text-secondary: var(--eerie-black);
+
+  --color-secondary: rgb(255, 109, 60);
+  --rgb-secondary: 0, 176, 179;
+  --color-secondary-light: rgb(255, 104, 154);
+  --rgb-secondary-light: 71, 255, 237;
+  --color-grad-1: rgb(60, 106, 255);
+  --rgb-grad-1: 60, 106, 255;
+  --color-grad-2: rgb(149, 28, 255);
+  --rgb-grad-2: 149, 28, 255;
+
+  --border-color-box: var(--eerie-black);
+  --text-color-box: var(--text-primary);
+  --bg-progress-bar: var(--french-gray);
+  --bg-input: var(--platinum);
+}
 // REUSABLE STYLES =========================================================
-@mixin text-grad ($color1,$color2) {
-    color: transparent;
-    background: linear-gradient($color1, $color2);
-    background-clip: text;
+@mixin text-grad($color1, $color2) {
+  color: transparent;
+  background: linear-gradient($color1, $color2);
+  background-clip: text;
 }
 
-@mixin boxshad ($top-color, $right-color, $bottom-color, $left-color) {
-    box-shadow: 0 -3px 4px $top-color, 3px 0 4px $right-color, 0 3px 4px $bottom-color, -3px 0 4px $left-color;
+@mixin boxshad($top-color, $right-color, $bottom-color, $left-color) {
+  box-shadow: 0 -3px 4px $top-color, 3px 0 4px $right-color,
+    0 3px 4px $bottom-color, -3px 0 4px $left-color;
 }
 
 @mixin bg-grad-primary {
-    background: linear-gradient(var(--color-blue), var(--color-purple));
+  background: linear-gradient(var(--color-grad-1), var(--color-grad-2));
 }
 
 @mixin text-grad-primary {
-    @include text-grad(var(--color-blue), var(--color-purple));
+  @include text-grad(var(--color-grad-1), var(--color-grad-2));
 }
 
-
 @mixin boxshad-grad-primary {
-    @include boxshad(rgba(var(--rgb-blue),.5), rgba(var(--rgb-purple),.5), rgba(var(--rgb-purple),.5), rgba(var(--rgb-blue),.5));
+  @include boxshad(
+    rgba(var(--rgb-grad-1), 0.5),
+    rgba(var(--rgb-grad-2), 0.5),
+    rgba(var(--rgb-grad-2), 0.5),
+    rgba(var(--rgb-grad-1), 0.5)
+  );
 }
 
 @mixin bg-grad-secondary {
-    background: linear-gradient(#00b0b3, #47ffed);
+  background: linear-gradient(
+    var(--color-secondary),
+    var(--color-secondary-light)
+  );
 }
 
 @mixin boxshad-grad-secondary {
-    @include boxshad(rgba(var(--rgb-cyab),.5), rgba(var(--rgb-cyan-light),.5), rgba(var(--rgb-cyan-light),.5), rgba(var(--rgb-cyan),.5));
-
+  @include boxshad(
+    rgba(var(--rgb-cyab), 0.5),
+    rgba(var(--rgb-secondary-light), 0.5),
+    rgba(var(--rgb-secondary-light), 0.5),
+    rgba(var(--rgb-secondary), 0.5)
+  );
 }
 
 @mixin text-grad-secondary {
-    @include text-grad(#00b0b3, #47ffed);
+  @include text-grad(var(--color-secondary), var(--color-secondary-light));
 }
 
 @mixin grid-col($num-cols, $col-gap, $row-gap) {
-    display: grid;
-    grid-template-columns: repeat($num-cols, 1fr);
-    column-gap: $col-gap;
-    row-gap: $row-gap;
+  display: grid;
+  grid-template-columns: repeat($num-cols, 1fr);
+  column-gap: $col-gap;
+  row-gap: $row-gap;
 }
 
 @mixin flex-row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 @mixin flex-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+@mixin button(
+  $width,
+  $height,
+  $border-radius,
+  $bg-color,
+  $icon-color,
+  $icon-size,
+  $hover-bg-color
+) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  @include flex-row();
+  justify-content: center;
+  cursor: pointer;
+
+  i {
+    font-size: $icon-size;
+    color: $icon-color;
+  }
+
+  &:hover {
+    scale: 1.1;
+    background-color: $hover-bg-color;
+  }
+}
+@mixin round-button(
+  $width,
+  $bg-color,
+  $icon-color,
+  $icon-size,
+  $hover-bg-color
+) {
+  @include button(
+    $width,
+    $width,
+    50%,
+    $bg-color,
+    $icon-color,
+    $icon-size,
+    $hover-bg-color
+  );
+}
+
+@mixin round-btn {
+  @include round-button(50px, var(--eerie-black), white, 1.5rem, var(--onyx));
+}
 // =========================================================================
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--color-primary);
-  color: var(--antiflash-white);
+  color: var(--text-primary);
   font-size: 1rem;
   transition: var(--transition-all);
 }
 
 a {
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
-    font-family: inherit;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
 }
 
-.text-grad {
-    @include text-grad-primary;
+.text-grad-primary {
+  @include text-grad-primary;
 }
+
+.text-grad-secondary {
+    @include text-grad-secondary;
+  }
 
 .bg-grad-primary {
-    @include bg-grad-primary;
+  @include bg-grad-primary;
 }
-
 
 // SECTIONS =================================================================
 section {
-    min-height: 100vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 3rem 8rem;
-
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3rem 8rem;
 }
 
 .section {
-    display: none;
-    background-color: var(--color-primary);
-    transition: var(--transition-all);
+  display: none;
+  background-color: var(--color-primary);
+  transition: var(--transition-all);
 }
 
 // .sec1 {
@@ -167,691 +261,699 @@ section {
 //     background-color: rgb(222, 135, 179);
 // }
 
-
 .active {
-    display: block;
-    animation: slide-down 1s ease-in-out, fade-in 1s ease-in-out;
+  display: block;
+  animation: slide-down 1s ease-in-out, fade-in 1s ease-in-out;
 }
 
 // CONTROLS
 .controls {
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    right: 3%;
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  right: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+
+  .control {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--color-primary-40);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(-50%);
+    margin: 0.5rem 0;
+    @include boxshad(
+      rgba(var(--rgb-grad-1), 0.5),
+      #ffffff00,
+      rgba(var(--rgb-grad-2), 0.5),
+      #ffffff00
+    );
 
-    
-    .control {
-        padding: 1rem;
-        cursor: pointer;
-        background: linear-gradient(var(--color-primary-40), var(--color-primary-40)); 
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0.5rem 0;
-        @include boxshad(rgba(var(--rgb-blue),.5), #ffffff00, rgba(var(--rgb-purple),.5), #ffffff00);
-
-        i {
-            font-size: 1.2rem;
-            color: var(--antiflash-white);
-            pointer-events: none;
-        }
+    i {
+      font-size: 1.2rem;
+      pointer-events: none;
+      color: var(--text-primary);
     }
 
-    .active-btn {
-        transition: all 1s ease-in-out;
-        i {
-            color: var(--color-white) !important;
-        }
-        animation: rotateY180 1s ease-in-out, bg-fade-in 1s ease-in-out both;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
+  }
+
+  .active-btn {
+    transition: all 1s ease-in-out;
+    animation: rotateY180 1s ease-in-out, bg-fade-in 1s ease-in-out both;
+
+    i {
+      transition: all 1s ease-in-out;
+      color: var(--color-white) !important;
+    }
+  }
 }
 
 // HEADER =================================================================
 header {
-    height: 100vh;
-    color: var(--color-white);
-    overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .header-content {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    height: 100%;
-    
-    .left-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; // because we want shape's position to be absolute
-        .shape {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: var(--transition-all);
-            clip-path: polygon(0 0, 25% 0, 75% 100%, 0% 100%);
-        }
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100%;
 
-        .image {
-            width: 60%;
-            aspect-ratio: 3/4;
-            transform: translate(0,0);
-            justify-content: center;
-            animation: float 2.5s ease-in-out 1s infinite alternate;
-            
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 50%;
-                filter: drop-shadow(0.5rem 1rem 1.5rem black);
-            }
-        }
+  .left-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; // because we want shape's position to be absolute
+    .shape {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: var(--transition-all);
+      clip-path: polygon(0 0, 25% 0, 75% 100%, 0% 100%);
     }
 
+    .image {
+      width: 60%;
+      aspect-ratio: 3/4;
+      transform: translate(0, 0);
+      justify-content: center;
+      animation: float 2.5s ease-in-out 1s infinite alternate;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0.5rem 1rem 1.5rem black);
+      }
+    }
+  }
+
+  .right-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: calc(100px);
+
+    .name {
+      font-size: 3rem;
+    }
+    .job-title {
+      font-size: 2rem;
+    }
+    p {
+      margin: 1.5rem 0;
+      line-height: 2rem;
+    }
+    .btn-con {
+      animation: slide-left-short 1s ease-in-out both,
+        fade-in 1s ease-in-out both;
+    }
+  }
+
+  // animations
+  @for $i from 1 to 5 {
     .right-header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-right: calc(100px);
-
-        .name {
-            font-size: 3rem;
+      @if $i != 4 {
+        :nth-child(#{$i}) {
+          animation: move-down-2 1s ease-in-out both,
+            fade-in 1s ease-in-out both;
         }
-        .job-title {
-            font-size: 2rem;
-        }
-        p {
-            margin: 1.5rem 0;
-            line-height: 2rem;
-        }
-        .btn-con {
-            animation: slide-left-short 1s ease-in-out both, fade-in 1s ease-in-out both;
-        }
-
+      }
+      // make animations start in sequential order
+      :nth-child(#{$i}) {
+        animation-delay: 0.5s + $i * (0.5s);
+      }
     }
-
-    // animations
-    @for $i from 1 to 5 {
-        .right-header {
-            @if $i != 4 {
-                :nth-child(#{$i}) {
-                    animation: move-down-2 1s ease-in-out both, fade-in 1s ease-in-out both;
-                }
-            } 
-            // make animations start in sequential order
-            :nth-child(#{$i}) {
-                animation-delay: .5s + $i*(.5s);
-            }
-        }
-    }
-
+  }
 }
-
-
 
 // ABOUT =================================================================
 .about-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3.5rem 0 5rem;
+  gap: 3rem;
+  .left-about {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      align-self: center;
+      font-size: 1.5rem;
+    }
+
+    p {
+      padding: 1rem 0 2rem;
+    }
+
+    .btn-con {
+      justify-content: center;
+    }
+  }
+
+  @for $i from 1 to 4 {
+    .left-about {
+      :nth-child(#{$i}) {
+        animation: slide-right-short 0.5s ease-in-out both,
+          fade-in 0.5s ease-in-out both;
+        animation-delay: 0.5s + $i * (0.2s);
+      }
+    }
+  }
+
+  .right-about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 3.5rem 0 5rem;
-    gap: 3rem;
-    .left-about {
+    grid-gap: 2rem;
+
+    .about-item {
+      border: 1px dashed var(--border-color-box);
+      border-radius: 5px;
+      transition: var(--transition-all);
+
+      &:hover {
+        box-shadow: 0px 0px 4px 2px var(--color-secondary);
+        border-color: transparent;
+        transform: scale(1.02);
+      }
+
+      .about-text {
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
 
-        h4 {
-            align-self: center;
-            font-size: 1.5rem;
-        }
-        
-        p {
-            padding: 1rem 0 2rem;
+        .large-text {
+          font-size: 2.5rem;
+          font-weight: 700;
+          @include text-grad-secondary;
         }
 
-        .btn-con {
-            justify-content: center;
+        .small-text {
+          padding-left: 3rem;
+          position: relative;
+          text-transform: uppercase;
+          font-size: 1rem;
+          color: var(--text-color-box);
+          letter-spacing: 2px;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            content: "";
+            width: 2px;
+            height: 100%;
+            @include bg-grad-secondary;
+          }
         }
+      }
     }
-
-    @for $i from 1 to 4 {
-        .left-about {
-            :nth-child(#{$i}) {
-                animation: slide-right-short .5s ease-in-out both, fade-in .5s ease-in-out both;
-                animation-delay: .5s + $i*(.2s);
-            }
-        }
-    }
-    
+  }
+  @for $i from 1 to 5 {
     .right-about {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2rem;
-
-        .about-item {
-            border: 1px dashed var(--slate-gray);
-            border-radius: 5px;
-            transition: var(--transition-all);
-            
-            &:hover {
-                box-shadow: 0px 0px 4px 2px var(--color-secondary);
-                border-color: transparent;
-                transform: scale(1.02);
-            }
-
-            .about-text {
-                padding: 1.5rem;
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-                
-                .large-text {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                    @include text-grad-secondary;
-                }
-
-                .small-text {
-                    padding-left: 3rem;
-                    position: relative;
-                    text-transform: uppercase;
-                    font-size: 1rem;
-                    color: var(--antiflash-white);
-                    letter-spacing: 2px;
-
-                    &::before {
-                        position: absolute;
-                        top: 0;
-                        left: 1rem;
-                        content: '';
-                        width: 2px;
-                        height: 100%;
-                        @include bg-grad-secondary;                      
-                    }
-                }
-            }
-        }
+      :nth-child(#{$i}) {
+        animation: slide-left-short 0.5s ease-in-out both,
+          fade-in 0.5s ease-in-out both;
+        animation-delay: 0.5s + $i * (0.2s);
+      }
     }
-    @for $i from 1 to 5 {
-        .right-about {
-            :nth-child(#{$i}) {
-                animation: slide-left-short .5s ease-in-out both, fade-in .5s ease-in-out both;
-                animation-delay: .5s + $i*(.2s);
-            }
-        }
-    }
+  }
 }
 
 // SKILLS
 .stats {
-    .title {
-        text-align: center;
-        // text-transform: uppercase;
-        font-size: 2rem;
-        padding: 2rem;
-        animation: fade-in .5s ease-in-out 1.5s both;
-    }
+  .title {
+    text-align: center;
+    // text-transform: uppercase;
+    font-size: 2rem;
+    padding: 2rem;
+    animation: fade-in 0.5s ease-in-out 1.5s both;
+  }
 
-    .skills-con {
-        @include grid-col(2, 5rem, 2rem);
+  .skills-con {
+    @include grid-col(2, 5rem, 2rem);
 
-        .skill {
-            @include flex-col();
-            row-gap: 1rem;
+    .skill {
+      @include flex-col();
+      row-gap: 1rem;
 
-            .skill-title {
-                font-size: 1.2rem;
-                @include flex-row();
-                .logo-con {
-                    width: 2rem;
-                    height: 2rem;
-                    box-sizing: content-box;
-                    padding-right: .5rem; 
-                    @include flex-row();
-                    i {
-                        font-size: 2rem;
-                    }
+      .skill-title {
+        font-size: 1.2rem;
+        @include flex-row();
+        .logo-con {
+          width: 2rem;
+          height: 2rem;
+          box-sizing: content-box;
+          padding-right: 0.5rem;
+          @include flex-row();
+          i {
+            font-size: 2rem;
+          }
 
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
+          svg {
+            width: 100%;
+            height: 100%;
+
+            g:nth-of-type(2) {
+              fill: var(--text-primary);
             }
-
-            .progress-bar-con {
-                @include flex-row;
-                gap: 1rem;
-                .progress-text {
-                    font-size: 1.2rem;
-                }
-
-                .progress-bar {
-                    background-color: var(--outer-space);
-                    width: 100%;
-                    height: .3rem;
-                    position: relative;
-                    overflow: hidden;
-                    
-                    span {
-                        position: absolute;
-                        background: linear-gradient(to right, var(--color-cyan), var(--color-cyan-light));
-                        width: 0;
-                        height: 100%;
-                        transition: all 0.5s ease-in-out both 6s;
-                        z-index: 1;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            top: 50%;
-                            translate: 50% -50%;
-                            right: 0;
-                            width: .6rem;
-                            height: .6rem;
-                            border-radius: 50%;
-                            background-color: var(--color-cyan-light);
-                            box-shadow: 0 0 4px var(--color-cyan-light);
-                            z-index: 0;
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
+
+      .progress-bar-con {
+        @include flex-row;
+        gap: 1rem;
+        .progress-text {
+          font-size: 1.2rem;
+        }
+
+        .progress-bar {
+          background-color: var(--bg-progress-bar);
+          width: 100%;
+          height: 0.3rem;
+          position: relative;
+          overflow: hidden;
+
+          span {
+            position: absolute;
+            background: linear-gradient(
+              to right,
+              var(--color-secondary),
+              var(--color-secondary-light)
+            );
+            width: 0;
+            height: 100%;
+            transition: all 0.5s ease-in-out both 6s;
+            z-index: 1;
+          }
+        }
+      }
     }
+  }
 }
 
 .portfolio {
-    .description {
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 2rem 0 2rem;
-    }
+  .description {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem 0 2rem;
+  }
 
-    .portfolio-items-con {
-        @include grid-col(3, 2rem, 2rem);
+  .portfolio-items-con {
+    @include grid-col(3, 2rem, 2rem);
 
-        .portfolio-item {
-            background-color: #00b0b3;
-            aspect-ratio: 3/2;
-            border-radius: 1rem;
-            position: relative;
-            overflow: hidden;
+    .portfolio-item {
+      aspect-ratio: 3/2;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
 
-            .image-con {
-                position: absolute;
-                inset: 0;
-                object-fit: cover;
+      .image-con {
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            .hover-item {
-                translate: 0 100%;
-                opacity: 0;
-                @include bg-grad-secondary();
-                position: absolute;
-                inset: 0;
-                @include flex-col();
-                text-align: center;
-                gap: 1rem;
-                
-                .title {
-                    color: var(--color-primary);
-                    font-size: 1.2rem;
-                }
-
-                .icons-con {
-                    @include flex-row();
-                    justify-content: center;
-                    gap: 2rem;
-                    font-size: 2rem;
-
-                    .icon {
-                        box-sizing: content-box;
-                        @include flex-row();
-                        justify-content: center;
-                        width: 2rem;
-                        height: 2rem;
-                        padding: .5rem;
-                        border-radius: 50%;
-                        background-color: black;
-
-                        &:hover {
-                            scale: 1.1;
-                            background-color: #000000aa;
-                        }
-                    }
-                }
-                
-            }
-
-            &:hover .hover-item{
-                translate: 0 0;
-                opacity: 1;
-                transition: all .5s ease;
-            }
+        img {
+          width: 100%;
+          height: 100%;
         }
-    }
+      }
 
+      .hover-item {
+        translate: 0 100%;
+        opacity: 0;
+        background-color: rgba(119, 136, 153, 0.5);
+        position: absolute;
+        inset: 0;
+        @include flex-col();
+        text-align: center;
+        gap: 1rem;
+        .title {
+          color: var(--color-primary);
+          font-size: 1.2rem;
+        }
+
+        .icons-con {
+          @include flex-row();
+          justify-content: center;
+          gap: 2rem;
+
+          .icon {
+            @include round-btn();
+          }
+        }
+      }
+
+      &:hover .hover-item {
+        translate: 0 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+      }
+    }
+  }
 }
 
 // CONTACT
 .contact-content-con {
-    display: flex;
-    padding-top: 3.5rem;
+  display: flex;
+  padding-top: 3.5rem;
 
-    .left-contact {
-        flex: 2;
+  .left-contact {
+    flex: 2;
 
-        h4 {
-            margin-top: 1rem;
-            font-size: 2rem;
-        }
+    h4 {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
 
+    p {
+      margin: 1rem 0;
+      line-height: 2rem;
+    }
+
+    .contact-info {
+      .contact-item {
+        @include flex-row();
+        justify-content: space-between;
+        flex-wrap: wrap;
         p {
-            margin: 1rem 0;
-            line-height: 2rem;
+          margin: 0.5rem 1rem !important;
+          padding: 0 !important;
         }
 
-        .contact-info {
-            .contact-item {
-                @include flex-row();
-                justify-content: space-between;
-                flex-wrap: wrap;
-                p {
-                    margin: .5rem 1rem !important;
-                    padding: 0 !important;
-                }
+        .icon {
+          display: grid;
+          grid-template-columns: 40px 1fr;
 
-                .icon {
-                    display: grid;
-                    grid-template-columns: 40px 1fr;
-
-                    i {
-                        @include flex-row();
-                        justify-content: center;
-                        font-size: 1.2rem;
-                    }
-                }
-            }
-            
-        }
-
-        .social-icons {
-            margin-top: 1rem;
+          i {
             @include flex-row();
-            gap: 1rem;
+            justify-content: center;
+            font-size: 1.2rem;
+          }
         }
+      }
     }
 
-    .right-contact {
-        flex: 3;
-        margin-left: 3rem;
+    .social-icons {
+      margin-top: 1rem;
+      @include flex-row();
+      gap: 1rem;
 
-        .input-control {
-            margin: 1rem 0;
-
-            input, textarea {
-                width: 100%;
-                resize: none;
-                font-family: inherit;
-                font-size: inherit;
-                font-weight: inherit;
-                border-radius: 1.2rem;
-                padding: .5rem 1rem;
-                outline: none;
-                border: none;
-                background-color: var(--eerie-black);
-                color: var(--antiflash-white);
-            }
-
-        }
-
-        .same-row {
-            display: flex;
-            gap: 1rem;
-            
-        }
-
-        .submit-btn {
-            display: flex;
-            justify-content: end;
-        }
+      a {
+        @include round-button(
+          50px,
+          var(--eerie-black),
+          white,
+          1.5rem,
+          var(--onyx)
+        );
+      }
     }
+  }
+
+  .right-contact {
+    flex: 3;
+    margin-left: 3rem;
+
+    .input-control {
+      margin: 1rem 0;
+
+      input,
+      textarea {
+        width: 100%;
+        resize: none;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        border-radius: 1.2rem;
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: none;
+        background-color: var(--bg-input);
+        color: var(--text-primary);
+      }
+    }
+
+    .same-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .submit-btn {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+// THEME =================================================================
+.theme-btn {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  @include round-button(3rem, var(--eerie-black), white, 1.2rem, var(--onyx));
+
+  i {
+    pointer-events: none;
+  }
 }
 
 // REUSABLE COMPONENTS =================================================================
 // BUTTON
 .btn-con {
-    display: flex;
-    justify-content: start;
+  display: flex;
+  justify-content: start;
 }
 
 .main-btn {
-    @include boxshad-grad-primary;
-    position: relative;
-    border-radius: 2rem;
-    font-weight: 600;
+  @include boxshad-grad-primary;
+  position: relative;
+  border-radius: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden; // ::before element won’t be visible outside container
+
+  * {
+    z-index: 1;
+  }
+
+  .btn-text {
+    margin-left: 2rem;
+  }
+  .btn-icon {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    overflow: hidden; // ::before element won’t be visible outside container 
+    border-radius: 50%;
+    padding: 1rem;
+    margin-right: -1px;
 
-    * {
-        z-index: 1;
+    i {
+      color: var(--antiflash-white);
     }
+  }
 
-    .btn-text {
-        margin-left: 2rem;
-    }
-    .btn-icon {
-        display: flex;
-        align-items: center;
-        border-radius: 50%;
-        padding: 1rem;
-        margin-right: -1px;
-    }
-    
-    // effect: slide left on hover
+  // effect: slide left on hover
+  &::before {
+    content: ""; // ::before element won't be added to the HTML without this attribute
+    position: absolute;
+    inset: 0; // same dimensions as the container
+    border-radius: 2rem;
+    @include bg-grad-primary;
+    transform: translateX(100%); // from_state
+    z-index: 0;
+  }
+
+  &:hover {
     &::before {
-        content: ''; // ::before element won't be added to the HTML without this attribute
-        position: absolute;
-        inset: 0; // same dimensions as the container
-        border-radius: 2rem;
-        @include bg-grad-primary;
-        transform: translateX(100%); // from_state
-        z-index: 0;
+      transition: all 0.5s ease;
+      transform: translateX(0%); // to_state
     }
-    &:hover::before {
-        transition: all .5s ease;
-        transform: translateX(0%); // to_state
-    }
-    
+
+    color: var(--antiflash-white);
+  }
 }
 
-.round-btns {
-    a {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: var(--eerie-black);
-        @include flex-row();
-        justify-content: center;
-
-        i {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        &:hover {
-            scale: 1.1;
-            background-color: var(--onyx);
-        }
-
-    }
+.round-btn {
+  @include round-button(50px, var(--eerie-black), white, 1.5rem, var(--onyx));
 }
 
 // SECTION TITLE
 .main-title {
-    text-align: center;
-    h2 {
-        position: relative;
-        font-size: 3.5rem;
+  text-align: center;
+  h2 {
+    position: relative;
+    font-size: 3.5rem;
 
-        .front {
-            position: relative;
-            letter-spacing: 4px;
-            z-index: 1;
-            animation: scale-up-105 3s ease alternate infinite;
-        }
-        .bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%; 
-            transform: translate(-50%, -50%); // move anchor point to center of the element's box
-            text-transform: uppercase;
-            font-size: 5rem;
-            font-weight: 800;
-            color: var(--slate-gray);
-            letter-spacing: 0.5rem;
-            opacity: .3;
-            z-index: 0;
-        }
+    .front {
+      position: relative;
+      letter-spacing: 4px;
+      z-index: 1;
+      animation: scale-up-105 3s ease alternate infinite;
     }
+    .bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(
+        -50%,
+        -50%
+      ); // move anchor point to center of the element's box
+      text-transform: uppercase;
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--slate-gray);
+      letter-spacing: 0.5rem;
+      opacity: 0.3;
+      z-index: 0;
+    }
+  }
 }
 
-// animation keyframes
+// animation keyframes =================================================================
 @keyframes slide-down {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes slide-left {
-    0% {
-        transform: translateX(100%)
-    }
-    100% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes slide-right {
-    0% {
-        transform: translateX(-100%)
-    }
-    100% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-up-short {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes slide-left-short {
-    0% {
-        transform: translateX(3rem);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(3rem);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes slide-right-short {
-    0% {
-        transform: translateX(-3rem);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(-3rem);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-
 @keyframes rotateY180 {
-    0% {
-        transform: rotateY(180deg);
-    }
-    100% {
-        transform: rotateY(0deg);
-    }
-} 
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
 
 @keyframes horizontal-spread {
-    0% {
-        clip-path: circle(0%);
-    }
-    100% {
-        clip-path: circle(100%);
-    }
+  0% {
+    clip-path: circle(0%);
+  }
+  100% {
+    clip-path: circle(100%);
+  }
 }
 
 @keyframes bg-fade-in {
-    0% {
-        background: linear-gradient(--var(--color-primary-40), --var(--color-primary-40)); 
-    }
-    100% {
-        @include bg-grad-primary;
-    }
+  0% {
+    background: linear-gradient(
+      --var(--color-primary-40),
+      --var(--color-primary-40)
+    );
+  }
+  100% {
+    @include bg-grad-primary;
+  }
 }
 
 @keyframes float {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(0, -1rem);
-    }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -1rem);
+  }
 }
 
 @keyframes move-down-2 {
-    0% {
-        transform: translateY(-5%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 @keyframes move-down-3 {
-    0% {
-        transform: translateY(-10%);
-    }
-    50% {
-        transform: translateY(-10%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes scale-up-105 {
-    0% {
-        transform: scale(100%);
-    }
-    100% {
-        transform: scale(105%);
-    }
+  0% {
+    transform: scale(100%);
+  }
+  100% {
+    transform: scale(105%);
+  }
 }

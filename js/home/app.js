@@ -60,22 +60,43 @@ function GenerateAnimation() {
   }
 
   // Progress bar
-// delay = 1.5
+  // delay = 1.5
   const skillList = document.querySelectorAll(".skill");
-  sequentialAnimation(skillList, [
-    ["fade-in", 0.5, "ease-in-out", 1.5, 0.1],
-  ]);
+  sequentialAnimation(skillList, [["fade-in", 0.5, "ease-in-out", 1.5, 0.1]]);
 
-// delay=1.5
+  // delay=1.5
   const progressList = document.querySelectorAll(".progress");
-  sequentialAnimation(progressList, [['slide-right', .5, 'ease-in-out', 1.5, .1]])
+  sequentialAnimation(progressList, [
+    ["slide-right", 0.5, "ease-in-out", 1.5, 0.1],
+  ]);
 
   // Portfolio
   const portfolioItems = document.querySelectorAll(".portfolio-item");
-  sequentialAnimation(portfolioItems, [["fade-in", 1, "ease-in-out", 1, 0.1],["move-down-2", .5, "ease-in-out", 1, 0.1]])
+  sequentialAnimation(portfolioItems, [
+    ["fade-in", 1, "ease-in-out", 1, 0.1],
+    ["move-down-2", 0.5, "ease-in-out", 1, 0.1],
+  ]);
 
+  //   Contact
+  const leftContactElements = document.querySelector(".left-contact").children;
+  sequentialAnimation(leftContactElements, [
+    ["slide-up-short", .5, "ease-in-out", .5, 0.1], ["fade-in", .5, "ease-in-out", .5, 0.1]
+  ]);
+
+  const rightContactElements = document.querySelector(".contact-form").children
+  sequentialAnimation(rightContactElements, [
+    ["slide-up-short", .5, "ease-in-out", .5, 0.1], ["fade-in", .5, "ease-in-out", .5, 0.1]
+  ]);
+}
+
+function ThemeChange() {
+  const themeBtn = document.querySelector(".theme-btn");
+  themeBtn.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+  });
 }
 
 PageTransition();
 ProgressBar();
 GenerateAnimation();
+ThemeChange();
