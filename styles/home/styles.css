@@ -29,6 +29,7 @@
   --text-color-box: var(--text-primary);
   --bg-progress-bar: var(--outer-space);
   --bg-input: var(--eerie-black);
+  --bg-profile-img: rgba(79, 82, 86, 0.5);
   --transition-all: var(--transition-all);
   --transition-all-1: all 1s ease-in-out;
   --br-sm-2: 14px;
@@ -56,32 +57,7 @@
   --text-color-box: var(--text-primary);
   --bg-progress-bar: var(--french-gray);
   --bg-input: var(--platinum);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-}
-
-html, body {
-  height: 100vh;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--color-primary);
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: var(--transition-all);
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  font-family: inherit;
+  --bg-profile-img: rgba(187, 187, 187, 0.5);
 }
 
 .text-grad-primary {
@@ -102,19 +78,49 @@ a {
   background: linear-gradient(var(--color-grad-1), var(--color-grad-2));
 }
 
-section {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html,
+body {
   height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 3rem 8rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-all);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
 }
 
 .section {
   display: none;
   background-color: var(--color-primary);
   transition: var(--transition-all);
+  scrollbar-gutter: stable;
+}
+
+section {
+  min-height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 4rem 8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .active {
@@ -189,9 +195,9 @@ header {
           clip-path: polygon(0 0, 25% 0, 75% 100%, 0% 100%);
 }
 .header-content .left-header .image {
-  background-color: rgba(79, 82, 86, 0.5);
+  background-color: var(--bg-profile-img);
   border-radius: 50%;
-  width: 70%;
+  width: min(300px, 70%);
   aspect-ratio: 1;
   transform: translate(0, 0);
   justify-content: center;
@@ -817,7 +823,27 @@ header {
     transform: scale(105%);
   }
 }
-@media screen and (width <= 600px) {
+@media screen and (width <= 1000px) {
+  section {
+    padding-inline: 6rem;
+  }
+  .image {
+    width: min(300px, 80%) !important;
+  }
+  .about-container {
+    grid-template-columns: 1fr !important;
+  }
+  .portfolio-items-con {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .contact-content-con {
+    flex-direction: column;
+  }
+  .contact-content-con .right-contact {
+    margin-left: 0 !important;
+  }
+}
+@media screen and (width <= 800px) {
   .main-title .front-text {
     font-size: 2.5rem;
   }
@@ -825,15 +851,18 @@ header {
     font-size: 4rem !important;
   }
   .section {
-    padding: 2rem 1rem 6rem;
+    padding-inline: 3rem;
     width: 100vw;
     overflow-x: hidden;
+    padding-bottom: 6rem;
+  }
+  header {
+    height: -moz-fit-content;
+    height: fit-content;
+    padding-top: 4rem;
   }
   header .header-content {
     grid-template-columns: 1fr;
-  }
-  header .left-header {
-    padding-bottom: 6rem;
   }
   header .left-header .shape {
     display: none;
@@ -880,12 +909,6 @@ header {
     border-color: var(--border-color-box) !important;
     transform: none !important;
   }
-  .portfolio-items-con {
-    padding-right: 2rem;
-    padding-left: 2rem;
-    grid-template-columns: 1fr !important;
-    row-gap: 0.5rem !important;
-  }
   .contact-content-con {
     flex-direction: column;
     padding-top: 1.5rem !important;
@@ -906,5 +929,38 @@ header {
   .theme-btn {
     top: 0.5rem;
     right: 0.5rem;
+  }
+}
+@media screen and (width <= 500px) {
+  .main-title .front-text {
+    font-size: 2rem;
+  }
+  .main-title .bg-text {
+    font-size: 3rem !important;
+  }
+  .section {
+    padding-inline: 1rem;
+    padding-top: 3rem;
+  }
+  header {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .about .about-text {
+    padding: 1rem !important;
+  }
+  .skills-con {
+    grid-template-columns: 1fr !important;
+  }
+  .portfolio-items-con {
+    padding-inline: 1rem;
+    grid-template-columns: 1fr !important;
+    row-gap: 0.5rem !important;
+  }
+  .contact .contact-item {
+    padding-top: 1rem;
+  }
+  .contact .social-icons {
+    gap: 0.5rem !important;
   }
 }/*# sourceMappingURL=styles.css.map */

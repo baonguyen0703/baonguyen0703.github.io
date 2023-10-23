@@ -34,12 +34,14 @@
   --text-color-box: var(--text-primary);
   --bg-progress-bar: var(--outer-space);
   --bg-input: var(--eerie-black);
+  --bg-profile-img: rgba(79, 82, 86, 0.5);
   // ================================
 
   --transition-all: var(--transition-all);
   --transition-all-1: all 1s ease-in-out;
 
   --br-sm-2: 14px; // border-radius
+  
 }
 
 .light-mode {
@@ -67,7 +69,9 @@
   --text-color-box: var(--text-primary);
   --bg-progress-bar: var(--french-gray);
   --bg-input: var(--platinum);
+  --bg-profile-img: rgba(187, 187, 187, 0.5);
 }
+
 // REUSABLE STYLES =========================================================
 @mixin text-grad($color1, $color2) {
   color: transparent;
@@ -183,33 +187,6 @@
 @mixin round-btn {
   @include round-button(50px, var(--eerie-black), white, 1.5rem, var(--onyx));
 }
-// =========================================================================
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-  }
-
-html, body {
-    height: 100vh;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--color-primary);
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: var(--transition-all);
-  
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  font-family: inherit;
-}
 
 .text-grad-primary {
   @include text-grad-primary;
@@ -223,20 +200,50 @@ a {
   @include bg-grad-primary;
 }
 
-// SECTIONS =================================================================
-section {
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 3rem 8rem;
+// =========================================================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
 }
 
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-all);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+// SECTIONS =================================================================
 .section {
   display: none;
   background-color: var(--color-primary);
   transition: var(--transition-all);
+  scrollbar-gutter: stable;
+}
+
+section {
+  min-height: 100%;
+  height: fit-content;
+  width: 100%;
+  padding: 4rem 8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .active {
@@ -298,7 +305,7 @@ section {
 
 // HEADER =================================================================
 header {
-    height: 100%;
+  height: 100%;
 }
 
 .header-content {
@@ -322,9 +329,9 @@ header {
     }
 
     .image {
-      background-color: rgba(79, 82, 86, 0.5);
+      background-color: var(--bg-profile-img);
       border-radius: 50%;
-      width: 70%;
+      width: min(300px, 70%);
       aspect-ratio: 1;
       transform: translate(0, 0);
       justify-content: center;
@@ -713,7 +720,7 @@ header {
 
 // THEME =================================================================
 .theme-btn {
-    z-index: 10;
+  z-index: 10;
   position: fixed;
   top: 5%;
   right: 3%;

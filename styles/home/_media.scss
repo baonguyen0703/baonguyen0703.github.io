@@ -1,4 +1,33 @@
-@media screen and (width <= 600px) {
+@media screen and (width <= 1000px) {
+    section {
+        padding-inline: 6rem;
+    }
+
+    .image {
+        width: min(300px, 80%) !important;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr !important;
+
+    }
+
+    .portfolio-items-con { 
+        grid-template-columns: repeat(2, 1fr) !important;
+        // padding-bottom: 4rem !important;
+
+    }
+
+    .contact-content-con {
+        flex-direction: column;
+        // padding-bottom: 4rem !important;
+        .right-contact {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+@media screen and (width <= 800px) {
     .main-title {
         .front-text {
             font-size: 2.5rem;
@@ -8,18 +37,21 @@
         }
     }
     .section {
-        padding: 2rem 1rem 6rem;
+        padding-inline: 3rem;
         width: 100vw;
         overflow-x: hidden;
+        padding-bottom: 6rem;
     }
 
     header {
+        height: fit-content;
+        padding-top: 4rem;
         .header-content {
             grid-template-columns: 1fr;
         }
         
         .left-header {
-            padding-bottom: 6rem;
+            // padding-bottom: 6rem;
             .shape {
                 display: none;
             }
@@ -76,12 +108,7 @@
         transform: none !important;
     }
 
-    .portfolio-items-con {
-        padding-right: 2rem;
-        padding-left: 2rem;
-        grid-template-columns: 1fr !important;
-        row-gap: .5rem !important;
-    }
+    
 
     .contact-content-con {
         flex-direction: column;
@@ -110,4 +137,49 @@
         top: .5rem;
         right: .5rem;
     }
+}
+
+@media screen and (width <= 500px) {
+    .main-title {
+        .front-text {
+            font-size: 2rem;
+        }
+        .bg-text {
+            font-size: 3rem !important;
+        }
+    }
+    .section {
+        padding-inline: 1rem;
+        padding-top: 3rem;
+    }
+
+    header {
+        height: fit-content;
+    }
+
+    .about {
+        .about-text {
+            padding: 1rem !important;
+        }
+    }
+
+    .skills-con {
+        grid-template-columns: 1fr !important;
+    }
+
+    .portfolio-items-con {
+        padding-inline: 1rem;
+        grid-template-columns: 1fr !important;
+        row-gap: .5rem !important;
+    }
+
+    .contact {
+        .contact-item {
+            padding-top: 1rem;
+        }
+        .social-icons {
+            gap: .5rem !important;
+        }
+    }
+
 }
