@@ -1,0 +1,113 @@
+@media screen and (width <= 600px) {
+    .main-title {
+        .front-text {
+            font-size: 2.5rem;
+        }
+        .bg-text {
+            font-size: 4rem !important;
+        }
+    }
+    .section {
+        padding: 2rem 1rem 6rem;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    header {
+        .header-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .left-header {
+            padding-bottom: 6rem;
+            .shape {
+                display: none;
+            }
+        }
+
+        .right-header {
+            grid-row: 1;
+            padding: 0 0 3rem !important;
+
+            .name {
+                font-size: 2rem !important;
+
+                > span {
+                    font-size: 3rem !important;
+                }
+
+                div {
+                    font-size: 2.5rem !important;
+                }
+            }
+        }
+
+        .btn-con {
+            justify-content: center;
+        }
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+        .right-about {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .skills-con {
+        column-gap: 3rem !important;
+    }
+    
+    .controls {
+        flex-direction: row;   
+        justify-content: center;   
+        width: 100%;
+        gap: 1rem;  
+        inset: auto auto 0 0;
+        transform: translateY(0);
+        background-color: var(--bg-input);
+    }
+
+    .about-item:hover {
+        box-shadow: none !important;
+        border-color: var(--border-color-box) !important;
+        transform: none !important;
+    }
+
+    .portfolio-items-con {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        grid-template-columns: 1fr !important;
+        row-gap: .5rem !important;
+    }
+
+    .contact-content-con {
+        flex-direction: column;
+        padding-top: 1.5rem !important;
+        .left-contact {
+            h4 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .right-contact {
+            margin-top: 1rem;
+            margin-left: 0;
+        }
+
+        .submit-btn {
+            justify-content: center !important;
+        }
+
+        .social-icons {
+            justify-content: center !important;
+        }
+    }
+
+    .theme-btn {
+        top: .5rem;
+        right: .5rem;
+    }
+}
