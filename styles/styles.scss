@@ -22,10 +22,10 @@
   --eerie-black: #212529ff;
 
   --color-secondary: rgb(208, 0, 194);
-  --rgb-secondary: 0, 176, 179;
+  --rgb-secondary: 208, 0, 194;
   --color-secondary-light: rgb(255, 93, 115);
-  --rgb-secondary-light: 71, 255, 237;
-  --color-grad-1: #3c69ff;
+  --rgb-secondary-light: 255, 93, 115;
+  --color-grad-1: rgb(60, 105, 255);
   --rgb-grad-1: 60, 105, 255;
   --color-grad-2: rgb(185, 108, 252);
   --rgb-grad-2: 185, 108, 252;
@@ -41,7 +41,6 @@
   --transition-all-1: all 1s ease-in-out;
 
   --br-sm-2: 14px; // border-radius
-  
 }
 
 .light-mode {
@@ -57,10 +56,10 @@
   --text-secondary: var(--eerie-black);
 
   --color-secondary: rgb(219, 0, 204);
-  --rgb-secondary: 0, 176, 179;
+  --rgb-secondary: 219, 0, 204;
   --color-secondary-light: rgb(255, 45, 132);
-  --rgb-secondary-light: 71, 255, 237;
-  --color-grad-1: #3c6aff;
+  --rgb-secondary-light: 255, 45, 132;
+  --color-grad-1: rgb(60, 106, 255);
   --rgb-grad-1: 60, 106, 255;
   --color-grad-2: rgb(149, 28, 255);
   --rgb-grad-2: 149, 28, 255;
@@ -110,7 +109,7 @@
 
 @mixin boxshad-grad-secondary {
   @include boxshad(
-    rgba(var(--rgb-cyab), 0.5),
+    rgba(var(--rgb-secondary), 0.5),
     rgba(var(--rgb-secondary-light), 0.5),
     rgba(var(--rgb-secondary-light), 0.5),
     rgba(var(--rgb-secondary), 0.5)
@@ -233,7 +232,7 @@ a {
   display: none;
   background-color: var(--color-primary);
   transition: var(--transition-all);
-  scrollbar-gutter: stable;
+  // scrollbar-gutter: stable;
 }
 
 section {
@@ -248,7 +247,7 @@ section {
 
 .active {
   display: block;
-  animation: slide-down 1s ease-in-out, fade-in 1s ease-in-out;
+  // animation: slide-down 1s ease-in-out, fade-in 1s ease-in-out;
 }
 
 // CONTROLS
@@ -326,6 +325,7 @@ header {
       height: 100%;
       transition: var(--transition-all);
       clip-path: polygon(0 0, 25% 0, 75% 100%, 0% 100%);
+      animation: slide-right 1s ease-in-out .5s both, fade-in 1s ease-in-out .5s both; 
     }
 
     .image {
@@ -335,8 +335,8 @@ header {
       aspect-ratio: 1;
       transform: translate(0, 0);
       justify-content: center;
-      animation: float 2.5s ease-in-out 1s infinite alternate,
-        fade-in 1s ease-in-out 0.75s both;
+      animation: float 2.5s ease-in-out 1.5s infinite alternate,
+        fade-in 1s ease-in-out 1.5s both;
       overflow: hidden;
       img {
         width: 100%;
@@ -352,7 +352,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: calc(100px);
+    padding-right: clamp(10%, 150px, 20%);
 
     .name {
       font-size: 3rem;
@@ -385,7 +385,7 @@ header {
     .right-header {
       @if $i != 4 {
         :nth-child(#{$i}) {
-          animation: move-down-2 1s ease-in-out both,
+          animation: slide-down-2 1s ease-in-out both,
             fade-in 1s ease-in-out both;
         }
       }
@@ -425,8 +425,8 @@ header {
     .left-about {
       :nth-child(#{$i}) {
         animation: slide-right-short 0.5s ease-in-out both,
-          fade-in 0.5s ease-in-out both;
-        animation-delay: 0.5s + $i * (0.2s);
+          fade-in .5s ease-in-out both;
+        animation-delay: .5s + $i * (0.2s);
       }
     }
   }
@@ -484,8 +484,8 @@ header {
     .right-about {
       :nth-child(#{$i}) {
         animation: slide-left-short 0.5s ease-in-out both,
-          fade-in 0.5s ease-in-out both;
-        animation-delay: 0.5s + $i * (0.2s);
+          fade-in 1s ease-in-out both;
+        animation-delay: 1s + $i * (0.2s);
       }
     }
   }
@@ -495,10 +495,9 @@ header {
 .stats {
   .title {
     text-align: center;
-    // text-transform: uppercase;
     font-size: 2rem;
     padding: 2rem;
-    animation: fade-in 0.5s ease-in-out 1.5s both;
+    animation: fade-in 0.5s ease-in-out 2s both;
   }
 
   .skills-con {
@@ -567,59 +566,77 @@ header {
 .portfolio {
   .description {
     text-align: center;
-    font-size: 1.2rem;
-    padding: 2rem 0 2rem;
+    font-size: 1.5rem;
+    padding: 3rem 0 3rem;
+    text-transform: uppercase;
+    animation: slide-right-short 1s ease-in-out .5s both, fade-in 1s ease-in-out .5s both;
   }
 
   .portfolio-items-con {
     @include grid-col(3, 2rem, 2rem);
 
     .portfolio-item {
-      aspect-ratio: 3/2;
-      border-radius: 1rem;
-      position: relative;
-      overflow: hidden;
+      // Choose flex instead of grid bc text may wrap
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; // make sure the thumbnail sticks to the bottom
+      margin-bottom: 2rem;
 
-      .image-con {
-        position: absolute;
-        inset: 0;
-        object-fit: cover;
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
+      .item-name {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 600;
       }
 
-      .hover-item {
-        translate: 0 100%;
-        opacity: 0;
-        background-color: rgba(119, 136, 153, 0.5);
-        position: absolute;
-        inset: 0;
-        @include flex-col();
-        text-align: center;
-        gap: 1rem;
-        .title {
-          color: var(--color-primary);
-          font-size: 1.2rem;
-        }
+      .portfolio-thumbnail {
+        aspect-ratio: 3/2;
+        border-radius: 1rem;
+        box-shadow: 2px 2px 8px rgb(89, 89, 89);
+        position: relative;
+        overflow: hidden;
 
-        .icons-con {
-          @include flex-row();
-          justify-content: center;
-          gap: 2rem;
+        .image-con {
+          position: absolute;
+          inset: 0;
+          object-fit: cover;
 
-          .icon {
-            @include round-btn();
+          img {
+            width: 100%;
+            height: 100%;
           }
         }
-      }
 
-      &:hover .hover-item {
-        translate: 0 0;
-        opacity: 1;
-        transition: all 0.5s ease;
+        .hover-item {
+          translate: 0 100%;
+          opacity: 0;
+          background-color: rgba(119, 136, 153, 0.5);
+          position: absolute;
+          inset: 0;
+          @include flex-col();
+          text-align: center;
+          gap: 1rem;
+          .title {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+          }
+
+          .icons-con {
+            @include flex-row();
+            justify-content: center;
+            gap: 2rem;
+
+            .icon {
+              @include round-btn();
+            }
+          }
+        }
+
+        &:hover .hover-item {
+          translate: 0 0;
+          opacity: 1;
+          transition: all 0.5s ease;
+        }
       }
     }
   }
@@ -793,6 +810,23 @@ header {
 }
 
 // SECTION TITLE
+.bg-title {
+  position: fixed;
+  // top: 1.5rem;
+  // left: -2rem;
+  top: 0rem;
+  left: 0;
+  width: fit-content;
+  // transform: translate(0, 100%) rotate(-90deg); // move anchor point to center of the element's box
+  transform: translate(-100%, 0) rotate(-90deg); // move anchor point to center of the element's box
+  transform-origin: top right;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--slate-gray);
+  letter-spacing: 0.5rem;
+  opacity: 0.2;
+}
 .main-title {
   text-align: center;
   h2 {
@@ -803,12 +837,13 @@ header {
       position: relative;
       letter-spacing: 4px;
       z-index: 1;
-      animation: scale-up-105 3s ease alternate infinite;
+      animation: scale-up-102 3s ease alternate infinite, fade-in 1s linear both, slide-down .6s ease both;
     }
     .bg-text {
+      display: none;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 0%;
+      left: 0%;
       transform: translate(
         -50%,
         -50%
@@ -927,7 +962,7 @@ header {
   }
 }
 
-@keyframes move-down-2 {
+@keyframes slide-down-2 {
   0% {
     transform: translateY(-5%);
   }
@@ -935,7 +970,7 @@ header {
     transform: translateY(0);
   }
 }
-@keyframes move-down-3 {
+@keyframes slide-down-3 {
   0% {
     transform: translateY(-10%);
   }
@@ -947,13 +982,39 @@ header {
   }
 }
 
-@keyframes scale-up-105 {
+@keyframes scale-up-102 {
   0% {
     transform: scale(100%);
   }
   100% {
-    transform: scale(105%);
+    transform: scale(102%);
   }
 }
 
 @import "./media";
+
+// Have to hide the message form since Github pages is static so it doesn't allow server-side code
+// Will remove this style when I hosted my web app somewhere other than Github, where I can use server-side code to handle form submissions
+.left-contact {
+  text-align: center;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    width: min(800px, 80vw);
+  }
+
+  .contact-item {
+    justify-content: start !important;
+    p {
+      width: fit-content;
+    }
+  }
+}
+
+.right-contact {
+  display: none;
+}
+// =================================================================
