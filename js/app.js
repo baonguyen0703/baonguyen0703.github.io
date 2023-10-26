@@ -44,6 +44,9 @@ function PageTransition() {
       if (thisSection !== activeSection) {
         activeSection.classList.toggle("active");
         thisSection.classList.toggle("active");
+        window.scrollTo({
+          top: 0
+        })
       }
     }
   });

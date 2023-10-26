@@ -610,14 +610,14 @@ header {
         .hover-item {
           translate: 0 100%;
           opacity: 0;
-          background-color: rgba(119, 136, 153, 0.5);
+          background-color: rgba(130, 147, 160, 0.8);
           position: absolute;
           inset: 0;
           @include flex-col();
           text-align: center;
           gap: 1rem;
           .title {
-            color: var(--color-primary);
+            color: var(--eerie-black);
             font-size: 1.2rem;
           }
 
@@ -838,23 +838,6 @@ header {
       letter-spacing: 4px;
       z-index: 1;
       animation: scale-up-102 3s ease alternate infinite, fade-in 1s linear both, slide-down .6s ease both;
-    }
-    .bg-text {
-      display: none;
-      position: absolute;
-      top: 0%;
-      left: 0%;
-      transform: translate(
-        -50%,
-        -50%
-      ); // move anchor point to center of the element's box
-      text-transform: uppercase;
-      font-size: 5rem;
-      font-weight: 800;
-      color: var(--slate-gray);
-      letter-spacing: 0.5rem;
-      opacity: 0.3;
-      z-index: 0;
     }
   }
 }
