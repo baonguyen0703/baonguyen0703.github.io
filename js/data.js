@@ -19,65 +19,53 @@ export const portfolioItems = [
         youtube_url: '',
     },
     {
-        name: 'Aegisub2Staxrip',
-        thumbnail: '',
-        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-Aegisub2Staxrip',
-        youtube_url: 'https://youtu.be/DPqBg4RF4Bo',
-    },
-    {
         name: 'In N Out',
-        thumbnail: 'https://user-images.githubusercontent.com/98341055/227837533-9e32223a-6adc-4a4b-849f-e11875babb34.png',
+        thumbnail: 'assets/portfolio/InNOut.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut',
         youtube_url: 'https://youtu.be/QwFAoro9988',
     },
     {
+        name: 'Curved Text',
+        thumbnail: 'assets/portfolio/CurvedText.png',
+        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-CurvedText',
+        youtube_url: 'https://youtu.be/TDmGjKUPKFU',
+    },
+    {
         name: 'In N Out for Clip',
-        thumbnail: 'https://user-images.githubusercontent.com/98341055/227836472-a08b93bd-d730-4d06-98dc-a9f1dc6a05f8.png',
+        thumbnail: 'assets/portfolio/InNOut for Clip.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut-for-Clip',
         youtube_url: 'https://www.youtube.com/watch?v=pghm8wT-f2M',
     },
     {
         name: 'Add Image Sequence',
-        thumbnail: '',
+        thumbnail: 'assets/portfolio/AddImageSequence.png',
         github_url: 'https://github.com/baonguyen0703/-TRAMBO-Aegisub-Automation-AddImageSequence',
         youtube_url: 'https://youtu.be/jGTMrVVIlc4',
     },
     {
-        name: 'Curved Text',
-        thumbnail: '',
-        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-CurvedText',
-        youtube_url: 'https://youtu.be/TDmGjKUPKFU',
+        name: 'Aegisub2Staxrip',
+        thumbnail: 'assets/portfolio/aegisub2staxrip.png',
+        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-Aegisub2Staxrip',
+        youtube_url: 'https://youtu.be/DPqBg4RF4Bo',
     },
     {
         name: 'Save and Import Lines',
-        thumbnail: '',
+        thumbnail: 'assets/portfolio/SaveAndImportLines.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-SaveAndImportLines',
         youtube_url: 'https://youtu.be/oxHufw-GF38',
     },
     {
         name: 'Vector Color',
-        thumbnail: '',
+        thumbnail: 'assets/portfolio/VectorColor.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-VectorColor',
         youtube_url: 'https://youtu.be/LkF9_w6ci-E',
     },
     {
         name: 'Add Image',
-        thumbnail: '',
+        thumbnail: 'assets/portfolio/AddImage.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-AddImage',
         youtube_url: 'https://youtu.be/PXdSv_lTElo',
     },
-    {
-        name: 'Add Accents',
-        thumbnail: '',
-        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-AddAccents',
-        youtube_url: '',
-    },
-    {
-        name: 'Remove Accents',
-        thumbnail: '',
-        github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-RemoveAccents',
-        youtube_url: '',
-    }
 ]
 
 // Skills
