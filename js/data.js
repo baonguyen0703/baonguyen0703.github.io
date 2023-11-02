@@ -1,3 +1,6 @@
+// Resume
+export const resume_url = "files/Resume.pdf"
+
 // Portfolio
 export const portfolioItems = [
     {
@@ -117,5 +120,76 @@ export const skills = [
         name: 'Python',
         progress: '80%',
         icon: `<i class="fa-brands fa-python"></i>`
+    },
+]
+
+export const techs = [
+    {
+        name: 'HTML',
+        icon: 'assets/logos/html.png'
+    },
+    {
+        name: 'JavaScript',
+        icon: 'assets/logos/js.png'
+    },
+    {
+        name: 'React',
+        icon: 'assets/logos/react.png'
+    },
+    {
+        name: 'TypeScript',
+        icon: 'assets/logos/typescript.png'
+    },
+    {
+        name: 'CSS',
+        icon: 'assets/logos/css.png'
+    },
+    {
+        name: 'TailwindCSS',
+        icon: 'assets/logos/tailwindcss.png'
+    },
+    {
+        name: 'Sass',
+        icon: 'assets/logos/sass.png'
+    },
+    {
+        name: 'C++',
+        icon: 'assets/logos/cpp.png'
+    },
+    {
+        name: 'Python',
+        icon: 'assets/logos/python.png'
+    },
+    {
+        name: 'Lua',
+        icon: 'assets/logos/lua.png'
+    },
+    {
+        name: 'Java',
+        icon: 'assets/logos/java.png'
+    },
+    {
+        name: 'NodeJS',
+        icon: 'assets/logos/node.png'
+    },
+    {
+        name: 'PostgreSQL',
+        icon: 'assets/logos/postgresql.png'
+    },
+    {
+        name: 'Prisma',
+        icon: 'assets/logos/prisma.png'
+    },
+    {
+        name: 'Git',
+        icon: 'assets/logos/git.png'
+    },
+    {
+        name: 'Android',
+        icon: 'assets/logos/android.png'
+    },
+    {
+        name: 'Kotlin',
+        icon: 'assets/logos/kotlin.png'
     },
 ]

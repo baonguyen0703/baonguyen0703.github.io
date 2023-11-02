@@ -340,7 +340,6 @@ header {
       overflow: hidden;
       img {
         width: 100%;
-        // height: 100%;
         object-fit: cover;
         border-radius: 50%;
         filter: drop-shadow(0.5rem 1rem 1.5rem black);
@@ -491,8 +490,41 @@ header {
   }
 }
 
+// TECHS
+.technologies {
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    animation: fade-in 0.5s ease-in-out 2s both;
+  }
+
+  .techs-con {
+    @include flex-row();
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: slide-up-short .5s ease-in-out 2.3s both, fade-in .5s ease-in-out 2.3s both;
+  
+    .tech {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      row-gap: .5rem;
+      justify-items: center;
+  
+      .tech-logo {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+
 // SKILLS
 .stats {
+  display: none;
   .title {
     text-align: center;
     font-size: 2rem;
@@ -565,16 +597,18 @@ header {
 
 .portfolio {
   .description {
+    display: none;
     text-align: center;
     font-size: 1.5rem;
     padding: 3rem 0 3rem;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     animation: slide-right-short 1s ease-in-out .5s both, fade-in 1s ease-in-out .5s both;
   }
 
   .portfolio-items-con {
     @include grid-col(3, 2rem, 2rem);
-
+    padding-top: 3rem;
+    
     .portfolio-item {
       // Choose flex instead of grid bc text may wrap
       display: flex;

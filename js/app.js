@@ -1,12 +1,4 @@
-import { portfolioItems, skills } from "./data.js";
-
-// URLs
-const resume_url = "files/Resume.pdf"
-
-
-
-
-
+import { portfolioItems, skills, resume_url, techs } from "./data.js";
 
 // ================================================================
 
@@ -20,8 +12,6 @@ function ApplyURLs() {
 const body = document.querySelector("body");
 
 function PageTransition() {
-  const sections = document.querySelectorAll("section");
-  const secNavbar = document.querySelector(".controls");
   const secBtns = document.querySelectorAll(".control");
   // Handle control buttons click event
   secBtns.forEach((btn) => {
@@ -63,9 +53,8 @@ function ProgressBar() {
 function GenerateAnimation() {
   function SequentialAnimation(elementList, animationList) {
     // time vars are number in seconds
-    // animationList: array of [elementList, animationName, duration, timeFunction, delayOffset, delayFactor]*
+    // animationList: array of [animationName, duration, timeFunction, delayOffset, delayFactor]*
     for (let i = 0; i < elementList.length; i++) {
-      const element = elementList[i];
       let animationStr = "";
       let ani = animationList[0];
       animationStr += `${ani[0]} ${ani[1]}s ${ani[2]} both ${
@@ -100,7 +89,7 @@ function GenerateAnimation() {
     ["move-down-2", 1, "ease-in-out", 1, 0.15],
   ]);
 
-  //   Contact
+  // Contact
   // delay=.5
   const leftContactElements = document.querySelector(".left-contact").children;
   SequentialAnimation(leftContactElements, [
@@ -181,9 +170,25 @@ function GenerateSkills() {
   })
 }
 
+function GenerateTechs() {
+  const techsCon = document.querySelector(".techs-con")
+  techs.forEach( tech => {
+    techsCon.innerHTML += `
+    <div class="tech">
+      <img class="tech-logo" src="${tech.icon}">
+      <div class="tech-name">
+          ${tech.name}
+      </div>
+    </div>
+    `
+
+  })
+}
+
 ApplyURLs()
 GeneratePortfolioItems()
-GenerateSkills()
+// GenerateSkills()
+GenerateTechs()
 PageTransition();
 ProgressBar();
 GenerateAnimation();

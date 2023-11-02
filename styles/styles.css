@@ -356,6 +356,35 @@ header {
   animation-delay: 1.8s;
 }
 
+.technologies .title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  animation: fade-in 0.5s ease-in-out 2s both;
+}
+.technologies .techs-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: slide-up-short 0.5s ease-in-out 2.3s both, fade-in 0.5s ease-in-out 2.3s both;
+}
+.technologies .techs-con .tech {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0.5rem;
+  justify-items: center;
+}
+.technologies .techs-con .tech .tech-logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2px;
+}
+
+.stats {
+  display: none;
+}
 .stats .title {
   text-align: center;
   font-size: 2rem;
@@ -423,10 +452,10 @@ header {
 }
 
 .portfolio .description {
+  display: none;
   text-align: center;
   font-size: 1.5rem;
   padding: 3rem 0 3rem;
-  text-transform: uppercase;
   animation: slide-right-short 1s ease-in-out 0.5s both, fade-in 1s ease-in-out 0.5s both;
 }
 .portfolio .portfolio-items-con {
@@ -435,6 +464,7 @@ header {
   -moz-column-gap: 2rem;
        column-gap: 2rem;
   row-gap: 2rem;
+  padding-top: 3rem;
 }
 .portfolio .portfolio-items-con .portfolio-item {
   display: flex;
