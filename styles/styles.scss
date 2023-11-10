@@ -432,7 +432,7 @@ header {
 
   .right-about {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
 
     .about-item {
@@ -479,7 +479,7 @@ header {
       }
     }
   }
-  @for $i from 1 to 5 {
+  @for $i from 1 to 6 {
     .right-about {
       :nth-child(#{$i}) {
         animation: slide-left-short 0.5s ease-in-out both,
@@ -596,34 +596,32 @@ header {
 }
 
 .portfolio {
-  .description {
-    display: none;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 3rem 0 3rem;
-    // text-transform: uppercase;
-    animation: slide-right-short 1s ease-in-out .5s both, fade-in 1s ease-in-out .5s both;
-  }
-
   .portfolio-items-con {
     @include grid-col(3, 2rem, 2rem);
+    justify-items: center;
     padding-top: 3rem;
     
     .portfolio-item {
       // Choose flex instead of grid bc text may wrap
+      width: 25vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between; // make sure the thumbnail sticks to the bottom
+      gap: 1rem;
       margin-bottom: 2rem;
 
-      .item-name {
-        margin-top: 1rem;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 600;
+      .item-techs {
+        @include flex-row();
+        gap: .5rem;
+        // overflow-x: auto;
+
+        img {
+          width: 8%;
+        }
+        
       }
 
-      .portfolio-thumbnail {
+      .item-thumbnail {
         aspect-ratio: 16/9;
         border-radius: .5rem;
         box-shadow: 2px 2px 8px rgb(89, 89, 89);
@@ -673,7 +671,57 @@ header {
         }
       }
     }
+
+    .item-name {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+    }
   }
+}
+
+// FEEDBACKS
+.feedbacks-con {
+  @include flex-col();
+  gap: 2rem 2rem;
+  margin-top: 1rem;
+
+  .feedbacks-source {
+    @include flex-col();
+    text-align: center;
+    border: 1px dashed var(--slate-gray);
+
+    .logo-con {
+      @include flex-row();
+      justify-content: start;
+    }
+    .logo {
+      width: 3rem;
+    }
+    
+    .feedbacks-main {
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+      padding-top: 0;
+      gap: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+
+
+      .feedback-item {
+        border: 1px solid #ababab70;
+        max-width: 100%;
+        border-radius: 1rem;
+        object-fit: contain;
+        box-shadow: 1px 1px 4px #2d2d2d45;
+      }
+    }
+
+  }
+  
 }
 
 // CONTACT

@@ -4,67 +4,85 @@ export const resume_url = "files/Resume.pdf"
 // Portfolio
 export const portfolioItems = [
     {
-        name: 'Youtube Home Page Clone',
-        thumbnail: '../assets/portfolio/youtube_clone.jpg',
-        github_url: 'https://github.com/baonguyen0703/Youtube-clone',
-        youtube_url: '',
-    },
-    {
         name: 'Portfolio website',
-        thumbnail: '../assets/portfolio/portfolio_website.jpg',
+        techs: ['html', 'css', 'sass', 'js'],
+        thumbnail: 'assets/portfolio/portfolio_page.jpg',
         github_url: 'https://github.com/baonguyen0703/baonguyen0703.github.io',
         youtube_url: '',
     },
     {
         name: 'LA Mountains Landing Page',
+        techs: ['html', 'css', 'js'],
         thumbnail: '../assets/portfolio/LA_mountains.jpg',
         github_url: 'https://github.com/baonguyen0703/LA-Mountains-Landing-Page',
         youtube_url: '',
     },
     {
+        name: 'WorkOutLoud Web App',
+        techs: ['react', 'tailwindcss', 'js', 'typescript', 'next', 'node', 'postgresql', 'prisma'],
+        thumbnail: 'assets/portfolio/workoutloud.png',
+        github_url: 'https://github.com/WorkOutLoudApp/workoutloud',
+        youtube_url: '',
+    },
+    {
+        name: 'Youtube Home Page Clone',
+        techs: ['html', 'css', 'js'],
+        thumbnail: '../assets/portfolio/youtube_clone.jpg',
+        github_url: 'https://github.com/baonguyen0703/Youtube-clone',
+        youtube_url: '',
+    },
+    {
         name: 'In N Out',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/InNOut.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut',
         youtube_url: 'https://youtu.be/QwFAoro9988',
     },
     {
         name: 'Curved Text',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/CurvedText.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-CurvedText',
         youtube_url: 'https://youtu.be/TDmGjKUPKFU',
     },
     {
         name: 'In N Out for Clip',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/InNOut for Clip.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut-for-Clip',
         youtube_url: 'https://www.youtube.com/watch?v=pghm8wT-f2M',
     },
     {
         name: 'Add Image Sequence',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/AddImageSequence.png',
         github_url: 'https://github.com/baonguyen0703/-TRAMBO-Aegisub-Automation-AddImageSequence',
         youtube_url: 'https://youtu.be/jGTMrVVIlc4',
     },
     {
         name: 'Aegisub2Staxrip',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/aegisub2staxrip.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-Aegisub2Staxrip',
         youtube_url: 'https://youtu.be/DPqBg4RF4Bo',
     },
     {
         name: 'Save and Import Lines',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/SaveAndImportLines.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-SaveAndImportLines',
         youtube_url: 'https://youtu.be/oxHufw-GF38',
     },
     {
         name: 'Vector Color',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/VectorColor.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-VectorColor',
         youtube_url: 'https://youtu.be/LkF9_w6ci-E',
     },
     {
         name: 'Add Image',
+        techs: ['lua'],
         thumbnail: 'assets/portfolio/AddImage.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-AddImage',
         youtube_url: 'https://youtu.be/PXdSv_lTElo',
@@ -167,6 +185,10 @@ export const techs = [
     {
         name: 'Java',
         icon: 'assets/logos/java.png'
+    },
+    {
+        name: 'NextJS',
+        icon: 'assets/logos/next.png'
     },
     {
         name: 'NodeJS',

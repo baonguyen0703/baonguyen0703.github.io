@@ -4,9 +4,9 @@ import { portfolioItems, skills, resume_url, techs } from "./data.js";
 
 function ApplyURLs() {
   const resumeBtns = document.querySelectorAll(".resume-btn");
-  resumeBtns.forEach(btn => {
-    btn.href = resume_url
-  })
+  resumeBtns.forEach((btn) => {
+    btn.href = resume_url;
+  });
 }
 
 const body = document.querySelector("body");
@@ -35,8 +35,8 @@ function PageTransition() {
         activeSection.classList.toggle("active");
         thisSection.classList.toggle("active");
         window.scrollTo({
-          top: 0
-        })
+          top: 0,
+        });
       }
     }
   });
@@ -72,7 +72,7 @@ function GenerateAnimation() {
 
   // Progress bar
   // delay = 2
-  const skillList = document.querySelectorAll(".skill"); 
+  const skillList = document.querySelectorAll(".skill");
   SequentialAnimation(skillList, [["fade-in", 0.5, "ease-in-out", 2, 0.1]]);
 
   // delay=2.5
@@ -82,23 +82,33 @@ function GenerateAnimation() {
   ]);
 
   // Portfolio
-  // delay=1
+  // delay=.5
   const portfolioItems = document.querySelectorAll(".portfolio-item");
   SequentialAnimation(portfolioItems, [
-    ["fade-in", 1, "ease-in-out", 1, 0.15],
-    ["move-down-2", 1, "ease-in-out", 1, 0.15],
+    ["fade-in", 1, "ease-in-out", .5, 0.15],
+    ["move-down-2", 1, "ease-in-out", .5, 0.15],
+  ]);
+
+  // Feedbacks
+  // delay=.5
+  const feedbackItems = document.querySelectorAll(".feedback-item");
+  SequentialAnimation(feedbackItems, [
+    ["fade-in", .5, "ease-in-out", .5, 0.1],
+    ["slide-left-short", .5, "ease-in-out", .5, 0.1],
   ]);
 
   // Contact
   // delay=.5
   const leftContactElements = document.querySelector(".left-contact").children;
   SequentialAnimation(leftContactElements, [
-    ["slide-up-short", .5, "ease-in-out", .5, 0.1], ["fade-in", .5, "ease-in-out", .5, 0.1]
+    ["slide-up-short", 0.5, "ease-in-out", 0.5, 0.1],
+    ["fade-in", 0.5, "ease-in-out", 0.5, 0.1],
   ]);
 
-  const rightContactElements = document.querySelector(".contact-form").children
+  const rightContactElements = document.querySelector(".contact-form").children;
   SequentialAnimation(rightContactElements, [
-    ["slide-up-short", .5, "ease-in-out", .5, 0.1], ["fade-in", .5, "ease-in-out", .5, 0.1]
+    ["slide-up-short", 0.5, "ease-in-out", 0.5, 0.1],
+    ["fade-in", 0.5, "ease-in-out", 0.5, 0.1],
   ]);
 }
 
@@ -110,46 +120,58 @@ function ThemeChange() {
 }
 
 function GeneratePortfolioItems() {
-  const portfolioItemsCon = document.querySelector(".portfolio-items-con")
-  portfolioItems.forEach( item => {
-    const newItem = document.createElement("div")
-    newItem.className = "portfolio-item"
+  const portfolioItemsCon = document.querySelector(".portfolio-items-con");
+  portfolioItems.forEach((item) => {
+    const newItem = document.createElement("div");
+    newItem.className = "portfolio-item";
     newItem.innerHTML = `
-      <div class="portfolio-thumbnail">
+      <div class="item-techs"></div>
+      <div class="item-thumbnail">
         <div class="image-con">
-          ${ item.thumbnail ? 
-            `<img src="${item.thumbnail}" alt="">` : 
-            `<img src="assets/portfolio/port_bg.png" alt="">`
+          ${
+            item.thumbnail
+              ? `<img src="${item.thumbnail}" alt="">`
+              : `<img src="assets/portfolio/port_bg.png" alt="">`
           }
         </div>
         <div class="hover-item">
             <h3 class="title">Project Source</h3>
             <div class="icons-con">
-            ${ item.github_url ? 
-              `<a href="${item.github_url}" class="icon" target="_blank" rel="noopener noreferrer">
+            ${
+              item.github_url
+                ? `<a href="${item.github_url}" class="icon" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github"></i>
               </a>
-              ` : ''
+              `
+                : ""
             }
-            ${ item.youtube_url ? 
-              `<a href="${item.youtube_url}" class="icon" target="_blank" rel="noopener noreferrer">
+            ${
+              item.youtube_url
+                ? `<a href="${item.youtube_url}" class="icon" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-youtube"></i>
               </a>
-              ` : ''
+              `
+                : ""
             }
             </div>
         </div>
       </div>
-      <p class="item-name">${ item.name }</p>
+      <p class="item-name">${item.name}</p>
+    `;
 
-    `
-    portfolioItemsCon.appendChild(newItem)
-  })
+    const itemTechs = newItem.querySelector(".item-techs");
+    item.techs.forEach((tech) => {
+      itemTechs.innerHTML += `
+        <img class="tech-logo" src="assets/logos/${tech}.png">
+      `;
+    });
+    portfolioItemsCon.appendChild(newItem);
+  });
 }
 
 function GenerateSkills() {
-  const skillsCon = document.querySelector(".skills-con")
-  skills.forEach( skill => {
+  const skillsCon = document.querySelector(".skills-con");
+  skills.forEach((skill) => {
     skillsCon.innerHTML += `
     <div class="skill">
       <div class="skill-title">
@@ -165,14 +187,13 @@ function GenerateSkills() {
           </div>
       </div>
     </div>
-    `
-
-  })
+    `;
+  });
 }
 
 function GenerateTechs() {
-  const techsCon = document.querySelector(".techs-con")
-  techs.forEach( tech => {
+  const techsCon = document.querySelector(".techs-con");
+  techs.forEach((tech) => {
     techsCon.innerHTML += `
     <div class="tech">
       <img class="tech-logo" src="${tech.icon}">
@@ -180,17 +201,43 @@ function GenerateTechs() {
           ${tech.name}
       </div>
     </div>
-    `
-
-  })
+    `;
+  });
 }
 
-ApplyURLs()
-GeneratePortfolioItems()
+function GenerateFeedbacks() {
+  const youtubeFeedbacks = document.querySelector(
+    ".feedbacks-con .youtube .feedbacks-main"
+  );
+  for (let i = 1; i <= 12; i++) {
+    youtubeFeedbacks.innerHTML += `
+    <img src="assets/feedbacks/cmt_yt_${i}.jpg" alt="" class=feedback-item>
+    `;
+  }
+  const facebookFeedbacks = document.querySelector(
+    ".feedbacks-con .facebook .feedbacks-main"
+  );
+  for (let i = 1; i <= 9; i++) {
+    facebookFeedbacks.innerHTML += `
+    <img src="assets/feedbacks/cmt_fb_${i}.jpg" alt="" class=feedback-item>
+    `;
+  }
+  const messengerFeedbacks = document.querySelector(
+    ".feedbacks-con .messenger .feedbacks-main"
+  );
+  for (let i = 1; i <= 11; i++) {
+    messengerFeedbacks.innerHTML += `
+    <img src="assets/feedbacks/msg_fb_${i}.jpg" alt="" class=feedback-item>
+    `;
+  }
+}
+
+ApplyURLs();
+GeneratePortfolioItems();
 // GenerateSkills()
-GenerateTechs()
+GenerateTechs();
+GenerateFeedbacks();
 PageTransition();
 ProgressBar();
 GenerateAnimation();
 ThemeChange();
-

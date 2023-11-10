@@ -1,4 +1,4 @@
-@media screen and (width <= 1000px) {
+@media screen and (width <= 1200px) {
     section {
         padding-inline: 6rem;
     }
@@ -12,10 +12,18 @@
 
     }
 
+    .right-about {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
     .portfolio-items-con { 
         grid-template-columns: repeat(2, 1fr) !important;
         // padding-bottom: 4rem !important;
 
+    }
+
+    .portfolio-item {
+        width: 35vw !important;
     }
 
     .contact-content-con {
@@ -84,7 +92,7 @@
         padding-bottom: 2rem;
         padding-top: 2rem;
         .right-about {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
         }
     }
     
@@ -106,10 +114,6 @@
         box-shadow: none !important;
         border-color: var(--border-color-box) !important;
         transform: none !important;
-    }
-
-    .description {
-        font-size: 1.2rem !important;
     }
 
     .contact-content-con {
@@ -139,6 +143,19 @@
         top: .5rem;
         right: .5rem;
     }
+}
+
+@media screen and (width <= 700px) {
+    .portfolio-items-con {
+        padding-inline: 1rem;
+        grid-template-columns: 1fr !important;
+        row-gap: .5rem !important;
+    }
+
+    .portfolio-item {
+        width: 60vw !important;
+    }
+    
 }
 
 @media screen and (width <= 500px) {
@@ -172,15 +189,7 @@
         grid-template-columns: 1fr !important;
     }
 
-    .portfolio-items-con {
-        padding-inline: 1rem;
-        grid-template-columns: 1fr !important;
-        row-gap: .5rem !important;
-    }
-
-    .description {
-        font-size: 1rem !important;
-    }
+    
 
     .contact {
         .contact-item {
