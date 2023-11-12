@@ -9,6 +9,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/portfolio_page.jpg',
         github_url: 'https://github.com/baonguyen0703/baonguyen0703.github.io',
         youtube_url: '',
+        description: 'Working on this portfolio website has helped me learn and practice a significant amount of CSS and Sass skills.'
     },
     {
         name: 'LA Mountains Landing Page',
@@ -16,6 +17,7 @@ export const portfolioItems = [
         thumbnail: '../assets/portfolio/LA_mountains.jpg',
         github_url: 'https://github.com/baonguyen0703/LA-Mountains-Landing-Page',
         youtube_url: '',
+        description: 'A skill test that I received. I had to convert a design in Photoshop to a responsive landing page. Tabs and the image carousel were the components that I found most challenging, and figuring out how to implement them helped me improve my front-end skills.'
     },
     {
         name: 'WorkOutLoud Web App',
@@ -23,13 +25,15 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/workoutloud.png',
         github_url: 'https://github.com/WorkOutLoudApp/workoutloud',
         youtube_url: '',
+        description: 'My senior project. I challenged myself to join a web development team and independently learn a whole new tech stack to which I had never been exposed. It was a valuable experience as I had the opportunity to work on both the front-end and back-end.'
     },
     {
-        name: 'Youtube Home Page Clone',
+        name: 'Youtube Homepage Clone',
         techs: ['html', 'css', 'js'],
         thumbnail: '../assets/portfolio/youtube_clone.jpg',
         github_url: 'https://github.com/baonguyen0703/Youtube-clone',
         youtube_url: '',
+        description: 'Building a YouTube homepage clone helped me practice my front-end skills. The responsive navbar, search box, and sidebar were challenging to implement using vanilla JavaScript but interesting to work on.',
     },
     {
         name: 'In N Out',
@@ -37,6 +41,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/InNOut.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut',
         youtube_url: 'https://youtu.be/QwFAoro9988',
+        description: 'Automation script for Aegisub. It enables users to generate customized in and out text effects and apply these effects to multiple objects simultaneously. Users can also save the effects and reuse them later.',
     },
     {
         name: 'Curved Text',
@@ -44,6 +49,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/CurvedText.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-CurvedText',
         youtube_url: 'https://youtu.be/TDmGjKUPKFU',
+        description: 'This automation script positions characters along Bézier curves drawn by the user.',
     },
     {
         name: 'In N Out for Clip',
@@ -51,6 +57,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/InNOut for Clip.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-InNOut-for-Clip',
         youtube_url: 'https://www.youtube.com/watch?v=pghm8wT-f2M',
+        description: 'Automation script for Aegisub. It enables users to generate in and out text effects using rectangle clip tool.',
     },
     {
         name: 'Add Image Sequence',
@@ -58,6 +65,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/AddImageSequence.png',
         github_url: 'https://github.com/baonguyen0703/-TRAMBO-Aegisub-Automation-AddImageSequence',
         youtube_url: 'https://youtu.be/jGTMrVVIlc4',
+        description: 'Automation script for Aegisub. It enables users to add a sequence of images to the subtitle file, particularly useful for incorporating advanced effects that may not be possible to create using Aegisub alone.',
     },
     {
         name: 'Aegisub2Staxrip',
@@ -65,6 +73,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/aegisub2staxrip.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-Aegisub2Staxrip',
         youtube_url: 'https://youtu.be/DPqBg4RF4Bo',
+        description: 'Automation script for Aegisub. It automatically opens StaxRip, an encoding app, and imports the source video along with the subtitle file that users are working on into StaxRip.',
     },
     {
         name: 'Save and Import Lines',
@@ -72,6 +81,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/SaveAndImportLines.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-SaveAndImportLines',
         youtube_url: 'https://youtu.be/oxHufw-GF38',
+        description: 'Automation script for Aegisub. It enables users to save subtitle line objects in a subtitle file and import them later into another file.',
     },
     {
         name: 'Vector Color',
@@ -79,6 +89,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/VectorColor.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-VectorColor',
         youtube_url: 'https://youtu.be/LkF9_w6ci-E',
+        description: 'Automation script for Aegisub. It enables users to simply select colors with a GUI instead of manually writing the effect tags and RGBA color codes to create gradient colors.',
     },
     {
         name: 'Add Image',
@@ -86,6 +97,7 @@ export const portfolioItems = [
         thumbnail: 'assets/portfolio/AddImage.png',
         github_url: 'https://github.com/baonguyen0703/TRAMBO-Aegisub-Automation-AddImage',
         youtube_url: 'https://youtu.be/PXdSv_lTElo',
+        description: 'Automation script for Aegisub. It enables users to add images to multiple subtitle line objects. Users no longer have to manually write image effect tags and drawing commands to create masks for the images.',
     },
 ]
 

@@ -405,24 +405,28 @@ header {
   .left-about {
     display: flex;
     flex-direction: column;
-
     h4 {
       align-self: center;
       font-size: 1.5rem;
+      @include text-grad-secondary();
+      letter-spacing: 2px;
     }
-
+    
     p {
-      padding: 1rem 0 2rem;
+      text-indent: 2rem;
+      padding: .5rem 0;
+      line-height: 1.5rem;
     }
 
     .btn-con {
+      margin-top: 2rem;
       justify-content: center;
     }
   }
 
-  @for $i from 1 to 4 {
+  @for $i from 1 to 6 {
     .left-about {
-      :nth-child(#{$i}) {
+      > :nth-child(#{$i}) {
         animation: slide-right-short 0.5s ease-in-out both,
           fade-in .5s ease-in-out both;
         animation-delay: .5s + $i * (0.2s);
@@ -432,7 +436,7 @@ header {
 
   .right-about {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
 
     .about-item {
@@ -447,7 +451,7 @@ header {
       }
 
       .about-text {
-        padding: 1.5rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -477,11 +481,15 @@ header {
           }
         }
       }
+
+      &:last-of-type {
+        grid-column: span 2;  
+      }
     }
   }
   @for $i from 1 to 6 {
     .right-about {
-      :nth-child(#{$i}) {
+      > :nth-child(#{$i}) {
         animation: slide-left-short 0.5s ease-in-out both,
           fade-in 1s ease-in-out both;
         animation-delay: 1s + $i * (0.2s);
@@ -521,80 +529,7 @@ header {
   }
 }
 
-
-// SKILLS
-.stats {
-  display: none;
-  .title {
-    text-align: center;
-    font-size: 2rem;
-    padding: 2rem;
-    animation: fade-in 0.5s ease-in-out 2s both;
-  }
-
-  .skills-con {
-    @include grid-col(2, 5rem, 2rem);
-
-    .skill {
-      @include flex-col();
-      row-gap: 1rem;
-
-      .skill-title {
-        font-size: 1.2rem;
-        @include flex-row();
-        .logo-con {
-          width: 2rem;
-          height: 2rem;
-          box-sizing: content-box;
-          padding-right: 0.5rem;
-          @include flex-row();
-          i {
-            font-size: 2rem;
-          }
-
-          svg {
-            width: 100%;
-            height: 100%;
-
-            g:nth-of-type(2) {
-              fill: var(--text-primary);
-            }
-          }
-        }
-      }
-
-      .progress-bar-con {
-        @include flex-row;
-        gap: 1rem;
-        .progress-text {
-          font-size: 1.2rem;
-        }
-
-        .progress-bar {
-          background-color: var(--bg-progress-bar);
-          width: 100%;
-          height: 0.3rem;
-          position: relative;
-          overflow: hidden;
-
-          span {
-            position: absolute;
-            background: linear-gradient(
-              to right,
-              var(--color-secondary),
-              var(--color-secondary-light)
-            );
-            width: 0;
-            height: 100%;
-            transition: all 0.5s ease-in-out both 6s;
-            z-index: 1;
-          }
-        }
-      }
-    }
-  }
-}
-
+// PORTFOLIO
 .portfolio {
   .portfolio-items-con {
     @include grid-col(3, 2rem, 2rem);
@@ -606,14 +541,12 @@ header {
       width: 25vw;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; // make sure the thumbnail sticks to the bottom
       gap: 1rem;
-      margin-bottom: 2rem;
-
+      padding-block: 1rem;
+      border-bottom: 1px dashed var(--border-color-box);
       .item-techs {
         @include flex-row();
         gap: .5rem;
-        // overflow-x: auto;
 
         img {
           width: 8%;
@@ -677,6 +610,14 @@ header {
       font-size: 1rem;
       font-weight: 600;
     }
+
+    .item-description {
+      margin-top: -.7rem;
+      font-size: .8rem;
+      color: var(--french-gray-2);
+      // padding: 0 1rem;
+      text-align: center;
+    }
   }
 }
 
@@ -689,7 +630,7 @@ header {
   .feedbacks-source {
     @include flex-col();
     text-align: center;
-    border: 1px dashed var(--slate-gray);
+    border: 1px dashed var(--border-color-box);
 
     .logo-con {
       @include flex-row();
@@ -734,7 +675,8 @@ header {
 
     h4 {
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
     }
 
     p {

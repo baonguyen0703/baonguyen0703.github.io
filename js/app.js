@@ -157,6 +157,7 @@ function GeneratePortfolioItems() {
         </div>
       </div>
       <p class="item-name">${item.name}</p>
+      <p class="item-description">${item.description ? item.description : ""}</p>
     `;
 
     const itemTechs = newItem.querySelector(".item-techs");
@@ -166,28 +167,6 @@ function GeneratePortfolioItems() {
       `;
     });
     portfolioItemsCon.appendChild(newItem);
-  });
-}
-
-function GenerateSkills() {
-  const skillsCon = document.querySelector(".skills-con");
-  skills.forEach((skill) => {
-    skillsCon.innerHTML += `
-    <div class="skill">
-      <div class="skill-title">
-          <div class="logo-con">
-              ${skill.icon}
-          </div>
-          ${skill.name}
-      </div>
-      <div class="progress-bar-con">
-          <p class="progress-text">${skill.progress}</p>
-          <div class="progress-bar">
-              <span class="progress" data-width="${skill.progress}"></span>
-          </div>
-      </div>
-    </div>
-    `;
   });
 }
 
@@ -234,7 +213,6 @@ function GenerateFeedbacks() {
 
 ApplyURLs();
 GeneratePortfolioItems();
-// GenerateSkills()
 GenerateTechs();
 GenerateFeedbacks();
 PageTransition();

@@ -114,8 +114,12 @@
         box-shadow: none !important;
         border-color: var(--border-color-box) !important;
         transform: none !important;
-    }
 
+    }
+    
+    .about-item:last-of-type {
+        grid-column: span 1 !important;  
+    }
     .contact-content-con {
         flex-direction: column;
         padding-top: 1.5rem !important;
@@ -153,7 +157,7 @@
     }
 
     .portfolio-item {
-        width: 60vw !important;
+        width: 80vw !important;
     }
     
 }
